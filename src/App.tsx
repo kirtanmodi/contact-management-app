@@ -22,8 +22,11 @@ export default function App() {
         <Router>
           <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
           <Routes>
-            <Route path="/" element={<ContactsPage />} />
-            <Route path="/charts-and-map" element={<ChartsAndMaps />} />
+            <Route path="contact-management-app/" element={<ContactsPage />} />
+            <Route
+              path="contact-management-app/charts-and-map"
+              element={<ChartsAndMaps />}
+            />
           </Routes>
         </Router>
       </div>
