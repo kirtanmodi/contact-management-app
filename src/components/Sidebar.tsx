@@ -26,14 +26,20 @@ const Sidebar = ({ isCollapsed = false, setIsCollapsed }: SidebarProps) => {
             <li
               style={{ cursor: "pointer" }}
               className="py-2 px-4"
-              onClick={() => navigate("contact-management-app/")}
+              onClick={() => {
+                navigate("contact-management-app/");
+                setIsCollapsed(false);
+              }}
             >
               Contacts
             </li>
             <li
               style={{ cursor: "pointer" }}
               className="py-2 px-4"
-              onClick={() => navigate("contact-management-app/charts-and-map")}
+              onClick={() => {
+                navigate("contact-management-app/charts-and-map");
+                setIsCollapsed(false);
+              }}
             >
               Charts & Map
             </li>
