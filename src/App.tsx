@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import "./App.css";
+import Sidebar from "./components/Sidebar";
+import Titlebar from "./components/Titlebar";
 
-function App() {
+import ContactsPage from "./pages/ContactsPage";
+import ChartsAndMaps from "./pages/ChartsAndMaps";
+
+export default function App() {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Titlebar
+        title="Contact App"
+        isCollapsed={isCollapsed}
+        setIsCollapsed={setIsCollapsed}
+      />
+
+      <div className="flex flex-row w-screen h-screen bg-gray-800 text-white ">
+        <Router>
+          <Sidebar isCollapsed={isCollapsed} setIsCollapsed={setIsCollapsed} />
+          <Routes>
+            <Route path="/" element={<ContactsPage />} />
+            <Route path="/charts-and-map" element={<ChartsAndMaps />} />
+          </Routes>
+        </Router>
+      </div>
+    </>
   );
 }
-
-export default App;
